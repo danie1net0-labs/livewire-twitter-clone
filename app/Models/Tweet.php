@@ -9,7 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $id
  * @property string $body
- * @property-read User $created_by
+ * @property int $created_by
+ *
+ * @property-read User $createdBy
  */
 class Tweet extends Model
 {
@@ -19,6 +21,6 @@ class Tweet extends Model
 
     public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by');
     }
 }

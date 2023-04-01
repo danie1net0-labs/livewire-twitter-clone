@@ -8,6 +8,13 @@ use Livewire\Component;
 
 class Timeline extends Component
 {
+    protected function getListeners(): array
+    {
+        return [
+            'tweet::created' => '$refresh',
+        ];
+    }
+
     public function render(): View
     {
         return view('livewire.tweet.timeline', [

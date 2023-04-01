@@ -78,3 +78,15 @@ it('should show the tweet on the timeline', function () {
         ->test(Timeline::class)
         ->assertSee($tweet);
 });
+
+it('should reset body after tweeting', function () {
+    /** @var User $user */
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(Create::class)
+        ->set('body', 'This is my first tweet')
+        ->call('tweet')
+        ->assertEmitted('tweet::created')
+        ->assertSet('body', null);
+});
