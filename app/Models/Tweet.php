@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $id
  * @property string $body
- *
  * @property-read User $created_by
  */
 class Tweet extends Model

@@ -6,7 +6,6 @@ use App\Models\Tweet;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
 use Livewire\Component;
-use function dd;
 
 class Create extends Component
 {

@@ -17,7 +17,6 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $password
  * @property string $remember_token
  * @property DateTime $email_verifies_at
- *
  * @property-read Collection<int, Tweet> $tweets
  */
 class User extends Authenticatable
