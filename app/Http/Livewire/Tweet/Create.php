@@ -3,11 +3,15 @@
 namespace App\Http\Livewire\Tweet;
 
 use App\Models\Tweet;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\View\View;
 use Livewire\Component;
+use function dd;
 
 class Create extends Component
 {
+    use AuthorizesRequests;
+
     public string $body = '';
 
     public function render(): View
@@ -17,6 +21,8 @@ class Create extends Component
 
     public function tweet(): void
     {
+        $this->authorize('create', Tweet::class);
+
         Tweet::query()->create([
             'body' => $this->body,
             'created_by' => auth()->id(),

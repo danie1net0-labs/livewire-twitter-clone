@@ -26,7 +26,21 @@ it('should be able to create a tweet', function () {
         ->created_by->toBe($user->id);
 });
 
-todo('should make sure that only authenticated users can tweet');
+it('should make sure that only authenticated users can tweet', function () {
+    Livewire::test(Create::class)
+        ->set('body', 'This is my first tweet')
+        ->call('tweet')
+        ->assertForbidden();
+
+    /** @var User $user */
+    $user = User::factory()->create();
+
+    Livewire::actingAs($user)
+        ->test(Create::class)
+        ->set('body', $body = 'This is my first tweet')
+        ->call('tweet')
+        ->assertEmitted('tweet::created');
+});
 
 todo('body is requided');
 
