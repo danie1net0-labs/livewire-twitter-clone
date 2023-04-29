@@ -3,11 +3,13 @@
 namespace App\Http\Livewire\Tweet;
 
 use App\Models\Tweet;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Timeline extends Component
 {
+    public int $perPage = 10;
+
     protected function getListeners(): array
     {
         return [
@@ -17,8 +19,17 @@ class Timeline extends Component
 
     public function render(): View
     {
+        $tweets = Tweet::query()
+            ->latest()
+            ->paginate($this->perPage);
+
         return view('livewire.tweet.timeline', [
-            'tweets' => Tweet::query()->get(),
+            'tweets' => $tweets,
         ]);
+    }
+
+    public function loadMore(): void
+    {
+        $this->perPage += 10;
     }
 }

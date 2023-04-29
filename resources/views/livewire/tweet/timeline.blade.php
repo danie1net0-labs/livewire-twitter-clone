@@ -8,7 +8,7 @@
         <div>
           <h5 class="font-bold mb-2">
             <a >
-              {{ $tweet->createdBy->name }}
+              {{ $loop->iteration }} - {{ $tweet->createdBy->name }}
             </a>
           </h5>
 
@@ -18,4 +18,20 @@
         </div>
       </div>
   @endforeach
+
+  <div x-init="observeScroll()" x-data="{
+    observeScroll() {
+      const observer = new IntersectionObserver((items) => {
+        items.forEach(item => {
+          if (item.isIntersecting) {
+            @this.loadMore();
+          }
+        });
+      }, {
+        threshold: 1,
+      });
+
+      observer.observe(this.$el);
+    },
+  }"></div>
 </div>
