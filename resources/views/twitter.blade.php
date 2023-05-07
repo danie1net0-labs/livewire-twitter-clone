@@ -28,7 +28,7 @@
             <x-twitter.menu-item route="/messages" icon="messages" title="Mensagens"/>
             <x-twitter.menu-item route="/items" icon="saved-items" title="Itens Salvos"/>
             <x-twitter.menu-item route="{{ route('blue.subscribe') }}" icon="twitter-blue" title="Twitter Blue"/>
-            <x-twitter.menu-item route="/verified-organization" icon="verified-org" title="Organizações verificadas"/>
+            <x-twitter.menu-item route="{{ route('organization.subscribe') }}" icon="verified-org" title="Organizações verificadas"/>
             <x-twitter.menu-item route="/profile" icon="profile" title="Perfil"/>
             <x-twitter.menu-item route="/more" icon="more" title="Mais"/>
 

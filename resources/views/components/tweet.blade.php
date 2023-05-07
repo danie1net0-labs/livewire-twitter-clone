@@ -12,8 +12,18 @@
     <div class="w-full">
       <div class="flex justify-between w-full">
         <div>
-          <span class="text-white font-semibold text-base">
-            {{ $tweet->createdBy->name }}
+          <span class="text-white font-semibold text-base flex items-center space-x-1">
+            <span>
+              {{ $tweet->createdBy->name }}
+            </span>
+
+            @if($tweet->createdBy->subscribed('default'))
+              <x-icons.blue-badge />
+            @endif
+
+            @if($tweet->createdby->subscribed('verified-org'))
+              <x-icons.gold-badge />
+            @endif
           </span>
 
           <span class="text-sm text-neutral-500">

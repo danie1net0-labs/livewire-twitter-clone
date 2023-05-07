@@ -6,7 +6,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 
-class SubscribeController extends Controller
+class BlueSubscribeController extends Controller
 {
     /** @throws Exception */
     public function __invoke(): RedirectResponse
