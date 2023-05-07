@@ -10,6 +10,16 @@ module.exports = {
 
   theme: {
     extend: {
+      colors: {
+        twitter: '#1d9bf0',
+        lines: '#2f3336',
+      },
+      fontFamily: {
+        sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+      },
+      width: {
+        tb: '0.625px'
+      },
     },
   },
 

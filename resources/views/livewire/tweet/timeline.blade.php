@@ -1,22 +1,6 @@
-<div class="divide-y divide-gray-300">
+<div class="text-white text-lg w-full">
   @foreach($tweets as $tweet)
-      <div class="flex-4 p-4">
-{{--        <div class="mr-2">--}}
-{{--          <img src="{{ $tweet->createdBy->avatar }}" alt="avatar" class="rounded-full mr-2 w-8 h-8">--}}
-{{--        </div>--}}
-
-        <div>
-          <h5 class="font-bold mb-2">
-            <a >
-              {{ $loop->iteration }} - {{ $tweet->createdBy->name }}
-            </a>
-          </h5>
-
-          <p class="text-sm">
-            {{ $tweet->body }}
-          </p>
-        </div>
-      </div>
+    <x-tweet :tweet="$tweet" />
   @endforeach
 
   <div x-init="observeScroll()" x-data="{
