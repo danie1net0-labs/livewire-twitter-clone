@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <div class="text-[15px] -mt-2.5">
+      <div class="text-[15px]">
         {{ $tweet->body }}
       </div>
 

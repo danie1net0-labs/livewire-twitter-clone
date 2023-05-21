@@ -77,9 +77,7 @@
           <livewire:tweet.create/>
         </div>
 
-        <div class="text-center text-twitter text-sm py-4 bg-transparent hover:bg-opacity-20 hover:bg-gray-900 cursor-pointer">
-          Mostrar 245 Tweets
-        </div>
+        <livewire:tweet.show-tweets/>
 
         <livewire:tweet.timeline/>
       </div>

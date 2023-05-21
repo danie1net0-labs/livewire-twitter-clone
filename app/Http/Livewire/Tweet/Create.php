@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire\Tweet;
 
+use App\Events\TweetCreated;
 use App\Models\Tweet;
+use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\View\View;
 use Livewire\Component;
 
 class Create extends Component
@@ -34,5 +35,7 @@ class Create extends Component
         $this->reset();
 
         $this->emit('tweet::created');
+
+        TweetCreated::dispatch();
     }
 }
